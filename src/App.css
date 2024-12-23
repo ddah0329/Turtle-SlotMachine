@@ -1,24 +1,117 @@
-.app-container {
+/*.container {
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
-  background-image: url("../public/assets/frame.png");
-  background-size: contain; /* Makes the image fit within the container */
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; /* Set to a percentage of the viewport height */
-  max-width: 1200px; /* Set a max width to match the image size or desired max */
-  margin: 0 auto; /* Centers the container */
+  background-size: contain; // 배경 이미지를 컨테이너에 맞게 조정 
+  background-position: center; // 배경 이미지를 가운데로 정렬 
+  background-repeat: no-repeat; // 배경 이미지 반복을 방지 
+  height: 100vh; // 화면의 전체 높이를 사용 
+  display: flex; // Flexbox 활성화 
+  justify-content: center; // 가로 방향으로 중앙 정렬
+  align-items: center; // 세로 방향으로 중앙 정렬 */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Viewport Height */
+  position: relative;
+}
+
+.black-section {
+  flex: 3;
+  background-color: black;
+}
+
+.grid-section {
+  flex: 1;
+  background-color: white;
+  background-image: linear-gradient(
+      45deg,
+      #0ffb3f 25%,
+      transparent 25%,
+      transparent 75%,
+      #0ffb3f 75%,
+      #0ffb3f
+    ),
+    linear-gradient(
+      45deg,
+      #0ffb3f 25%,
+      transparent 25%,
+      transparent 75%,
+      #0ffb3f 75%,
+      #0ffb3f
+    );
+  background-size: 180px 180px; /* 크기 20씩 조정 position이랑 같이 조정되어야함 */
+  background-position: 0 0, 90px 90px; /* 크기 10씩 조정 size랑 같이 조정되어야함 */
+}
+
+.slot-machine-outter {
+  border: 15px solid white;
+  background-color: white;
+  display: flex; /* Flexbox 활성화 */
+  flex-direction: column; /* 콘텐츠를 세로로 정렬 */
+  align-items: center; /* 가로 방향 중앙 정렬 */
+  justify-content: center; /* 세로 방향 중앙 정렬 */
+  position: absolute; /* 절대 위치 설정 */
+  margin-top: 70px;
+  margin-bottom: 50px;
+  left: 50%; /* 수평 중앙 정렬 */
+  transform: translateX(-50%); /* 정확한 중앙 정렬 */
+  z-index: 1; /* 다른 섹션 위로 올라오도록 설정 */
+  border-radius: 20px; /* 선택: 둥근 모서리 */
+  width: 100%;
+  height: 85%;
+  max-width: 800px; /* You can set a specific max-width for the slot machine */
+  background-color: black; /* 내부 색상 */
+  outline: 2px solid black; /* 외부 윤곽선 색상 */
+  inline: 3px solide red;
+}
+
+.slot-machine-inner {
+  margin-top: 50px;
+  width: 700px;
+  height: 700px;
+  z-index: 2;
+  position: absolute;
+  background-color: red;
+}
+.game-course {
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 요소를 세로로 정렬 */
+  align-items: center; /* 콘텐츠를 가로로 중앙 정렬 */
+  margin-top: 30px; /* 위쪽 여백 추가 */
+}
+.game-images {
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 이미지를 가로로 중앙 정렬 */
+  gap: 10px; /* 이미지 사이 간격 추가 */
+  margin-bottom: 20px; /* 아래쪽 여백 추가 */
+}
+
+.game-slot {
+  width: 30%;
+  height: 1700px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #eaeaea;
+}
+
+.game-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the slot while maintaining proportions */
+}
+
+.placeholder {
+  font-size: 24px;
+  color: #999;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
-
-.slot-machine {
-  text-align: center;
-  margin-top: 50px;
-}
-
 .reels {
   display: flex;
   justify-content: center;
@@ -61,49 +154,6 @@ button {
   border-radius: 5px;
 }
 
-.slot-machine {
-  width: 100%;
-  height: 100%;
-  max-width: 800px; /* You can set a specific max-width for the slot machine */
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.game-course {
-  margin: 20px 0;
-}
-
-.game-images {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.game-slot {
-  width: 30%;
-  height: 150px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  background-color: #eaeaea;
-}
-
-.game-slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image fills the slot while maintaining proportions */
-}
-
-.placeholder {
-  font-size: 24px;
-  color: #999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 .start-button {
   padding: 10px 20px;
   font-size: 16px;
@@ -116,15 +166,22 @@ button {
 }
 
 .game-details {
-  margin-top: 20px;
+  margin-top: 20px; /* 위쪽 여백 추가 */
+  display: flex; /* Flexbox 활성화 */
+  justify-content: space-between; /* 카드 간 간격을 균등 분배 */
+  align-items: center; /* 카드들이 세로로 중앙에 정렬되도록 설정 */
+  gap: 20px; /* 카드 간 간격을 일정하게 설정 (선택 사항) */
 }
 
 .game-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: left;
+  flex: 1; /* 카드가 동일한 너비로 확장되도록 설정 */
+  max-width: 30%; /* 카드의 최대 너비 제한 */
+  border: 1px solid #ddd; /* 카드 테두리 설정 */
+  border-radius: 8px; /* 카드 모서리를 둥글게 설정 */
+  padding: 10px; /* 내부 여백 추가 */
+  margin: 0 10px; /* 카드 양옆 간격 추가 */
+  text-align: center; /* 카드 내용 중앙 정렬 */
+  width: auto;
 }
 
 .game-title {
@@ -152,8 +209,8 @@ button {
   }
 }
 .game-slot {
-  width: 30%;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   border: 2px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -188,4 +245,10 @@ button {
 
 body {
   background-color: black;
+}
+
+#checks-background .section2 {
+  /* Use conic-gradient*/
+  background: conic-gradient(#fff 25%, #ddd 25% 50%, #fff 50% 75%, #ddd 75%);
+  background-size: 40px 40px;
 }

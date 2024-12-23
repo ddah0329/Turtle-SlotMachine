@@ -85,62 +85,67 @@ const App = () => {
   };
 
   return (
-    <div className="app-container">
-      <div className="slot-machine">
-        <div className="game-course">
-          <div className="game-images">
-            {selectedGames.map((game, index) => (
-              <div
-                key={index}
-                className={`game-slot ${
-                  isSpinning && stoppingIndex < index ? "spinning" : ""
-                }`}
-              >
-                {game && game.src ? (
-                  <img
-                    src={game.src}
-                    alt={game.alt}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover", // 슬롯 사이즈에 맞추기
-                    }}
-                  />
-                ) : (
-                  <div className="placeholder">?</div>
-                )}
-              </div>
-            ))}
-          </div>
-          <button
-            className="start-button"
-            onClick={isSpinning ? stopSpinning : startSpinning}
-          >
-            {isSpinning ? "STOP" : "START"}
-          </button>
-        </div>
-        {showDetails && ( // Conditionally render game details based on showDetails state
-          <div className="game-details">
-            {selectedGames.map((game, index) => (
-              <div key={index} className="game-card">
-                <div className="game-title">
-                  {game ? game.alt : "게임 제목"}
-                </div>
-                {game && game.videoUrl !== "영상이 없습니다." && (
-                  <a
-                    href={game.videoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="video-button"
+    <div className="container">
+      <div className="black-section">
+        <div className="slot-machine-outter">
+          <div className="slot-machine-inner">
+            <div className="game-course">
+              <div className="game-images">
+                {selectedGames.map((game, index) => (
+                  <div
+                    key={index}
+                    className={`game-slot ${
+                      isSpinning && stoppingIndex < index ? "spinning" : ""
+                    }`}
                   >
-                    게임 방법
-                  </a>
-                )}
+                    {game && game.src ? (
+                      <img
+                        src={game.src}
+                        alt={game.alt}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover", // 슬롯 사이즈에 맞추기
+                        }}
+                      />
+                    ) : (
+                      <div className="placeholder">?</div>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
+              <button
+                className="start-button"
+                onClick={isSpinning ? stopSpinning : startSpinning}
+              >
+                {isSpinning ? "STOP" : "START"}
+              </button>
+            </div>
+            {showDetails && ( // Conditionally render game details based on showDetails state
+              <div className="game-details">
+                {selectedGames.map((game, index) => (
+                  <div key={index} className="game-card">
+                    <div className="game-title">
+                      {game ? game.alt : "게임 제목"}
+                    </div>
+                    {game && game.videoUrl !== "영상이 없습니다." && (
+                      <a
+                        href={game.videoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="video-button"
+                      >
+                        게임 방법
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
+      <div className="grid-section"></div>
     </div>
   );
 };
