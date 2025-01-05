@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   const [games, setGames] = useState([]);
@@ -8,7 +10,7 @@ const App = () => {
   const [isSpinning, setIsSpinning] = useState(false);
   const [stoppingIndex, setStoppingIndex] = useState(-1);
   const [showDetails, setShowDetails] = useState(false);
-  const [intervalId, setIntervalId] = useState(null); // Store the interval ID
+  const [intervalId, setIntervalId] = useState(null);
 
   const apiKey = process.env.REACT_APP_AIRTABLE_API_KEY;
   const baseId = process.env.REACT_APP_AIRTABLE_BASE_ID;
@@ -43,7 +45,7 @@ const App = () => {
     setIsSpinning(true);
     setStoppingIndex(-1);
     setSelectedGames([null, null, null]);
-    setShowDetails(false); // slot이 돌아가는 동안 게임 데이터 숨기기
+    setShowDetails(false);
 
     const interval = setInterval(() => {
       setSelectedGames((prev) =>
@@ -51,13 +53,13 @@ const App = () => {
       );
     }, 100);
 
-    setIntervalId(interval); // Store the interval ID
+    setIntervalId(interval);
   };
 
   const stopSpinning = () => {
-    if (!isSpinning) return; // Prevent further actions if already stopped
-    clearInterval(intervalId); // Stop the spinning interval
-    stopSlotMachine(0); // 차근차근 슬롯 멈추기
+    if (!isSpinning) return;
+    clearInterval(intervalId);
+    stopSlotMachine(0);
   };
 
   const stopSlotMachine = (index) => {
@@ -73,33 +75,37 @@ const App = () => {
         stopSlotMachine(index + 1);
       } else {
         setIsSpinning(false);
-        setShowDetails(true); // Show details when spinning stops
+        setShowDetails(true);
       }
-    }, 1000); // Delay between each slot stopping
+    }, 1000);
   };
 
   return (
     <div className="container">
-      <div className="black-section"></div>
-      <div className="yellow-section"></div>
-      <div className="grid-section"></div>
+      <Navbar />
+      <div className="black-section" />
+      <div className="yellow-section" />
+      <div className="grid-section" />
       <div className="slot-machine">
         <div className="circle-section">
-          <div className="circle">1인</div>
-          <div className="circle">2인</div>
-          <div className="circle">3인</div>
-          <div className="circle">4인</div>
-          <div className="circle">5인</div>
-          <div className="circle">6인</div>
-          <div className="circle">7+인</div>
+          {["1인", "2인", "3인", "4인", "5인", "6인", "7+인"].map(
+            (text, idx) => (
+              <div className="circle" key={idx}>
+                {text}
+              </div>
+            )
+          )}
         </div>
-        <div className="machine-frame"></div>
-        <div className="game-detail">
-          <div className="detail-frame"></div>
-          <div className="detail-frame"></div>
-          <div className="detail-frame"></div>
+        <div className="inner-contents">
+          <div className="machine-frame" />
+          <div className="game-detail">
+            {[0, 1, 2].map((_, idx) => (
+              <div className="detail-frame" key={idx} />
+            ))}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -3,20 +3,18 @@ body {
 }
 
 .container {
-  height: 100vh; /* 화면 전체 높이 */
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .black-section {
-  height: 75%; /* 상단 3/4 */
+  height: 55%;
   background-color: black;
 }
 
 .yellow-section {
   height: 3%;
-  display: flex;
-  flex-direction: column;
   background-color: #fffd96;
   border: 2px solid black;
   border-left: none;
@@ -24,7 +22,7 @@ body {
 }
 
 .grid-section {
-  height: 25%;
+  height: 45%;
   background: linear-gradient(
       45deg,
       #0ffb3f 25%,
@@ -40,29 +38,29 @@ body {
       #0ffb3f 75%
     );
   background-color: white;
-  background-size: 180px 180px; /* 크기 20씩 조정 position이랑 같이 조정되어야함 */
-  background-position: 0 0, 90px 90px; /* 크기 10씩 조정 size랑 같이 조정되어야함 */
-}
-.circle-section {
-  width: 100%; /* circle-section의 가로 길이를 전체로 확장 */
-  top: -25px; /* slot-machine-outter의 테두리에서 벗어나게 위로 이동 */
-  left: 52%; /* 수평 중앙 정렬 */
-  margin-bottom: 20px;
-  position: absolute; /* 절대 위치 */
-  transform: translateX(-50%); /* 정확한 중앙 정렬 */
-  display: flex; /* 가로로 배치 */
-  justify-content: left;
+  background-size: 180px 180px;
+  background-position: 0 0, 90px 90px;
 }
 
-.slot-machine .circle {
+.circle-section {
+  width: 100%;
+  top: -25px;
+  left: 52%;
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.circle {
   width: 35px;
   height: 35px;
   background-color: #0ffb3f;
   border-radius: 50%;
   margin: 0 5px;
   display: flex;
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center;
+  align-items: center;
   font-size: 12px;
   color: black;
   font-weight: bold;
@@ -70,98 +68,73 @@ body {
 }
 
 .slot-machine {
-  z-index: 1;
-  position: absolute; /* 절대 위치 */
+  position: absolute;
   width: 80%;
-  height: 80%;
+  height: 60%;
   background-color: black;
   border: 15px solid white;
   outline: 2px solid black;
   border-radius: 30px;
-  display: flex; /* 중앙 정렬을 위한 Flexbox */
-  justify-content: center; /* 가로 중앙 정렬 */
-  left: 50%; /* 가로 중앙 기준 */
-  top: 50%; /* 세로 중앙 기준 */
-  transform: translate(-50%, -50%); /* 정확한 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inner-contents {
+  width: 100%;
 }
 
 .machine-frame {
-  width: 95%; /* 가로 크기 */
-  height: 70%;
-  flex-grow: 1; /* 세로 공간을 유동적으로 차지 */
   background-image: url("../public/assets/machine-frame.png");
   background-position: center;
   background-repeat: no-repeat;
-  margin: 10px;
-  background-size: contain; /* 비율 유지하며 맞춤 */
+  background-size: contain;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin: 30px 10px 10px 10px;
 }
 
-/* Game Detail Section 스타일 */
 .game-detail {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%; /* 가로 공간 전체 사용 */
-  margin-bottom: 10px;
+  width: 100%;
   position: absolute;
-  bottom: 20px; /* 화면 하단에 배치 */
   left: 50%;
   transform: translateX(-50%);
-  padding: 10px;
+  padding: 0 10px;
 }
 
-/* 이미지 프레임 스타일 */
 .detail-frame {
-  width: 140px;
-  height: 140px;
+  width: 80px;
+  height: 80px;
   background-image: url("../public/assets/detail-frame.png");
-  background-size: cover; /* 이미지 크기를 맞춤 */
-  background-position: center; /* 이미지 중앙에 배치 */
+  background-size: cover;
+  background-position: center;
 }
 
-/* 모바일 반응형 스타일 */
 @media (max-width: 768px) {
   .grid-section {
     height: 25%;
-    background: linear-gradient(
-        45deg,
-        #0ffb3f 25%,
-        transparent 25%,
-        transparent 75%,
-        #0ffb3f 75%
-      ),
-      linear-gradient(
-        45deg,
-        #0ffb3f 25%,
-        transparent 25%,
-        transparent 75%,
-        #0ffb3f 75%
-      );
-    background-color: white;
-    background-size: 140px 140px; /* 크기 20씩 조정 position이랑 같이 조정되어야함 */
-    background-position: 0 0, 70px 70px; /* 크기 10씩 조정 size랑 같이 조정되어야함 */
+    background-size: 140px 140px;
+    background-position: 0 0, 70px 70px;
+  }
+
+  .machine-frame {
+    padding-bottom: 75%;
   }
 }
 
 @media (max-width: 480px) {
   .grid-section {
     height: 25%;
-    background: linear-gradient(
-        45deg,
-        #0ffb3f 25%,
-        transparent 25%,
-        transparent 75%,
-        #0ffb3f 75%
-      ),
-      linear-gradient(
-        45deg,
-        #0ffb3f 25%,
-        transparent 25%,
-        transparent 75%,
-        #0ffb3f 75%
-      );
-    background-color: white;
     background-size: 120px 120px;
-    background-position: 0 0, 60px 60px; /* position * 2px = size px */
+    background-position: 0 0, 60px 60px;
+  }
+
+  .machine-frame {
+    padding-bottom: 100%;
   }
 }
