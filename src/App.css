@@ -44,12 +44,11 @@ body {
 
 .circle-section {
   width: 100%;
-  top: -25px;
-  left: 52%;
+  top: -23px;
+  left: 51%;
   position: absolute;
   transform: translateX(-50%);
   display: flex;
-  margin-bottom: 20px;
 }
 
 .circle {
@@ -90,7 +89,7 @@ body {
 
 .machine-frame {
   height: auto;
-  margin: 30px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
 }
 
 .machine-frame-img {
@@ -135,8 +134,21 @@ body {
   }
 
   .circle {
-    width: 27px;
-    height: 27px;
-    font-size: 8px;
+    width: 21px;
+    height: 21px;
+    font-size: 6px;
+  }
+
+  .circle-section {
+    left: 53%;
+    top: -16px;
+  }
+
+  .slot-machine {
+    border: 10px solid white;
+  }
+
+  .inner-contents {
+    margin-top: 45px;
   }
 }
