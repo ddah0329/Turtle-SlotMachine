@@ -19,6 +19,7 @@
   color: white;
   cursor: pointer;
   transition: color 0.3s;
+  margin-left: 14px;
 }
 
 .navbar__center {
@@ -38,4 +39,19 @@
   width: auto;
   height: 28px;
   cursor: pointer;
+  margin-right: 15px;
+}
+
+@media (max-width: 480px) {
+  .navbar__link {
+    font-size: 0.8rem;
+  }
+
+  .navbar__logo {
+    height: 30px;
+  }
+
+  .navbar__icon {
+    height: 18px;
+  }
 }
