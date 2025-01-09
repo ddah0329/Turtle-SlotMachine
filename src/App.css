@@ -70,7 +70,7 @@ body {
 .slot-machine {
   position: absolute;
   width: 80%;
-  height: 60%;
+  height: 65%;
   background-color: black;
   border: 15px solid white;
   outline: 2px solid black;
@@ -83,58 +83,60 @@ body {
 }
 
 .inner-contents {
-  width: 100%;
+  width: 380px;
+  height: 420px;
+  margin-top: 10px;
 }
 
 .machine-frame {
-  background-image: url("../public/assets/machine-frame.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 0;
-  padding-bottom: 56.25%;
+  height: auto;
   margin: 30px 10px 10px 10px;
+}
+
+.machine-frame-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .game-detail {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  height: auto;
   padding: 0 10px;
 }
 
 .detail-frame {
-  width: 80px;
-  height: 80px;
-  background-image: url("../public/assets/detail-frame.png");
-  background-size: cover;
-  background-position: center;
+  flex: 1; /* 동일한 비율로 공간 분배 */
+  margin: 0 5px; /* 프레임 간 간격 추가 */
+}
+
+.detail-frame-img {
+  width: 95%;
+  height: auto;
+  object-fit: contain;
+  padding-left: 8px;
 }
 
 @media (max-width: 768px) {
   .grid-section {
-    height: 25%;
+    height: 40%;
     background-size: 140px 140px;
     background-position: 0 0, 70px 70px;
-  }
-
-  .machine-frame {
-    padding-bottom: 75%;
   }
 }
 
 @media (max-width: 480px) {
   .grid-section {
-    height: 25%;
+    height: 40%;
     background-size: 120px 120px;
     background-position: 0 0, 60px 60px;
   }
 
-  .machine-frame {
-    padding-bottom: 100%;
+  .circle {
+    width: 27px;
+    height: 27px;
+    font-size: 8px;
   }
 }

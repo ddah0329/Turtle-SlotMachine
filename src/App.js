@@ -97,10 +97,22 @@ const App = () => {
           )}
         </div>
         <div className="inner-contents">
-          <div className="machine-frame" />
+          <div className="machine-frame">
+            <img
+              src={process.env.PUBLIC_URL + "/assets/machine-frame.png"}
+              alt="Slot Machine Frame"
+              className="machine-frame-img"
+            />
+          </div>
           <div className="game-detail">
             {[0, 1, 2].map((_, idx) => (
-              <div className="detail-frame" key={idx} />
+              <div className="detail-frame" key={idx}>
+                <img
+                  src={process.env.PUBLIC_URL + "/assets/detail-frame.png"}
+                  alt="Game Detail Frame"
+                  className="detail-frame-img"
+                />
+              </div>
             ))}
           </div>
         </div>
