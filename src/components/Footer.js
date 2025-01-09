@@ -6,35 +6,35 @@ const Footer = () => {
   return (
     <footer className="footer">
       {/* Left Image */}
-      <div className="footer__left">
+      <div className="footer_left">
         <img
           src="assets/footer_left.png"
           alt="Footer Left"
-          className="footer__image"
+          className="footer_image"
         />
       </div>
 
       {/* Arrow */}
-      <div className="footer__arrow">
-        <div className="footer__line"></div>
-        <div className="footer__arrowText">&lt;</div>
+      <div className="footer_arrow">
+        <div className="footer_line"></div>
+        <div className="footer_arrowHead">&lt;</div>
       </div>
 
       {/* Right Image */}
-      <div className="footer__right">
+      <div className="footer_turtle">
         <img
           src="assets/footer_turtle.png"
           alt="Footer Right"
-          className="footer__image"
+          className="footer_image"
         />
       </div>
 
       {/* Right Image */}
-      <div className="footer__rightImage">
+      <div className="footer_right">
         <img
           src="assets/footer_right.png"
           alt="Footer Right"
-          className="footer__image"
+          className="footer_image"
         />
       </div>
     </footer>
