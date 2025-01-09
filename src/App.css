@@ -108,7 +108,6 @@ body {
 
 .detail-frame {
   flex: 1; /* 동일한 비율로 공간 분배 */
-  margin: 0 5px; /* 프레임 간 간격 추가 */
 }
 
 .detail-frame-img {
