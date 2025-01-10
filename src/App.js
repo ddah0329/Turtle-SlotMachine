@@ -98,11 +98,37 @@ const App = () => {
         </div>
         <div className="inner-contents">
           <div className="machine-frame">
+            {/* 머신 이미지 */}
             <img
               src={process.env.PUBLIC_URL + "/assets/machine-frame.png"}
               alt="Slot Machine Frame"
               className="machine-frame-img"
             />
+            {/* 머신 내용물 */}
+            <div className="game-images">
+              {selectedGames.map((game, index) => (
+                <div
+                  key={index}
+                  className={`game-slot ${
+                    isSpinning && stoppingIndex < index ? "spinning" : ""
+                  }`}
+                >
+                  {game && game.src ? (
+                    <img
+                      src={game.src}
+                      alt={game.alt}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover", // 슬롯 사이즈에 맞추기
+                      }}
+                    />
+                  ) : (
+                    <div className="placeholder">?</div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="game-detail">
             {[0, 1, 2].map((_, idx) => (
