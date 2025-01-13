@@ -98,13 +98,11 @@ const App = () => {
         </div>
         <div className="inner-contents">
           <div className="machine-frame">
-            {/* 머신 이미지 */}
             <img
               src={process.env.PUBLIC_URL + "/assets/machine-frame.png"}
               alt="Slot Machine Frame"
               className="machine-frame-img"
             />
-            {/* 머신 내용물 */}
             <div className="game-images">
               {selectedGames.map((game, index) => (
                 <div
@@ -120,7 +118,7 @@ const App = () => {
                       style={{
                         width: "100%",
                         height: "100%",
-                        objectFit: "cover", // 슬롯 사이즈에 맞추기
+                        objectFit: "cover",
                       }}
                     />
                   ) : (
@@ -129,20 +127,45 @@ const App = () => {
                 </div>
               ))}
             </div>
+            <div className="controls">
+              <button
+                className="start-button"
+                onClick={isSpinning ? stopSpinning : startSpinning}
+              >
+                {isSpinning ? "STOP" : "START"}
+              </button>
+            </div>
           </div>
-          <div className="game-detail">
-            {[0, 1, 2].map((_, idx) => (
-              <div className="detail-frame" key={idx}>
-                <img
-                  src={process.env.PUBLIC_URL + "/assets/detail-frame.png"}
-                  alt="Game Detail Frame"
-                  className="detail-frame-img"
-                />
-              </div>
-            ))}
-          </div>
+
+          {showDetails && (
+            <div className="game-details">
+              {selectedGames.map((game, index) => (
+                <div key={index} className="game-card">
+                  <img
+                    src={process.env.PUBLIC_URL + "/assets/detail-frame.png"}
+                    alt="Game Detail Frame"
+                    className="detail-frame-img"
+                  />
+                  <div className="game-title">
+                    {game ? game.alt : "게임 제목"}
+                  </div>
+                  {game && game.videoUrl !== "영상이 없습니다." && (
+                    <a
+                      href={game.videoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="video-button"
+                    >
+                      게임 방법
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
+
       <Footer />
     </div>
   );
