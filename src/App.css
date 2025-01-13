@@ -118,15 +118,14 @@ body {
   align-items: center; /* 게임 이미지들을 수직 중앙 정렬 */
   z-index: 10;
   pointer-events: none; /* 게임 이미지들이 클릭되지 않게 하기 (필요 시) */
-  gap: 11px; /* 이미지 사이 간격 추가 */
-  margin-top: 12px;
-  margin-left: 0.5px;
+  gap: 13px; /* 이미지 사이 간격 추가 */
+  margin-top: 15px;
 }
 
 .game-slot {
   width: 21%;
   height: 28%;
-  border: 2px solid black;
+  border: 1px dotted black;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
@@ -168,6 +167,11 @@ body {
     background-size: 140px 140px;
     background-position: 0 0, 70px 70px;
   }
+
+  .game-images {
+    gap: 11px; /* 이미지 사이 간격 추가 */
+    margin-top: 13px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -194,7 +198,6 @@ body {
 
   .game-images {
     gap: 6px; /* 이미지 사이 간격 추가 */
-    margin-top: 7px;
-    margin-left: 0.5px;
+    margin-top: 9px;
   }
 }
