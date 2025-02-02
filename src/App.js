@@ -136,16 +136,28 @@ const App = () => {
               </button>
             </div>
           </div>
-
+        </div>
+        <div>
           {showDetails && (
             <div className="game-details">
               {selectedGames.map((game, index) => (
                 <div key={index} className="game-card">
-                  <img
+                  {/* <img
                     src={process.env.PUBLIC_URL + "/assets/detail-frame.png"}
                     alt="Game Detail Frame"
                     className="detail-frame-img"
+                  /> */}
+
+                  <img
+                    src={game.src}
+                    alt={game.alt}
+                    style={{
+                      width: "90%",
+                      height: "70%",
+                      objectFit: "cover",
+                    }}
                   />
+
                   <div className="game-title">
                     {game ? game.alt : "게임 제목"}
                   </div>
